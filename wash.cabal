@@ -1,0 +1,29 @@
+cabal-version:      3.0
+name:               wash
+version:            0.0.0.1
+synopsis:           Why Another SHell
+homepage:           https://github.com/isaac025/wash
+license:            GPL-2.0-only
+license-file:       LICENSE
+author:             Isaac Lopez
+maintainer:         isaac.lopez@upr.edu
+category:           Language
+build-type:         Simple
+extra-doc-files:    
+    CHANGELOG.md
+    README.md
+
+common warnings
+    ghc-options: -Wall
+
+executable wash
+    import:           warnings
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base ^>=4.17.2.1
+                    , transformers
+                    , parsec
+                    , haskeline
+    hs-source-dirs:   src
+    default-language: Haskell2010
