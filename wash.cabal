@@ -19,11 +19,14 @@ common warnings
 executable wash
     import:           warnings
     main-is:          Main.hs
-    -- other-modules:
+    other-modules:
+        Parser
+        Language
     default-extensions:
         OverloadedStrings
     build-depends:    base ^>=4.17.2.1
                     , transformers
+                    , mtl
                     , text
                     , parsec
     hs-source-dirs:   src

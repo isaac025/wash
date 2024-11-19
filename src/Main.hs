@@ -1,7 +1,8 @@
 module Main where
 
 import Control.Monad (when)
-import Data.Text.Lazy.IO (getLine, putStr, putStrLn)
+import Data.Text.Lazy.IO (getLine, putStr)
+import Parser
 import System.Environment (getArgs)
 import System.Exit (exitSuccess)
 import System.IO (BufferMode (..), hSetBuffering, stdout)
@@ -14,7 +15,7 @@ washLoop = hSetBuffering stdout NoBuffering >> loop
         putStr "> "
         l <- getLine
         when (l == "exit") exitSuccess
-        putStrLn l
+        print $ parser l
         loop
 
 washFile :: FilePath -> IO ()
