@@ -1,2 +1,3 @@
 # WASH
-Why Another SHell
+Why Another SHell?
+Because this one is lazy!

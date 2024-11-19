@@ -1,4 +1,28 @@
 module Main where
 
+import Control.Monad (when)
+import Data.Text.Lazy.IO (getLine, putStr, putStrLn)
+import System.Environment (getArgs)
+import System.Exit (exitSuccess)
+import System.IO (BufferMode (..), hSetBuffering, stdout)
+import Prelude hiding (getLine, putStr, putStrLn)
+
+washLoop :: IO ()
+washLoop = hSetBuffering stdout NoBuffering >> loop
+  where
+    loop = do
+        putStr "> "
+        l <- getLine
+        when (l == "exit") exitSuccess
+        putStrLn l
+        loop
+
+washFile :: FilePath -> IO ()
+washFile _ = undefined
+
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+    args <- getArgs
+    case args of
+        [] -> washLoop
+        (f : _) -> washFile f
